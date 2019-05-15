@@ -8,6 +8,8 @@ import {CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem} from '@ang
 })
 export class BlockInfiniteSlotComponent implements OnInit {
 
+  @ViewChild(CdkDropList) dropList: CdkDropList;
+
   get colour(): string {
     return this._colour;
   }
@@ -18,14 +20,17 @@ export class BlockInfiniteSlotComponent implements OnInit {
 
   private _colour: string;
 
+  private counter: number;
+
   constructor() {
+    this.counter = 0;
   }
 
   ngOnInit() {
   }
 
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<{ colour: string, someValue: number }[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -33,7 +38,12 @@ export class BlockInfiniteSlotComponent implements OnInit {
         event.container.data,
         event.previousIndex,
         event.currentIndex);
+      event.container.data = [{colour: this.colour, someValue: ++this.counter}];
     }
   }
 
+  onDragExited() {
+    this.dropList.data = [{colour: this.colour, someValue: ++this.counter}];
+
+  }
 }

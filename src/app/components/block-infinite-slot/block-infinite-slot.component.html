@@ -1,9 +1,10 @@
 <div
   (cdkDropListDropped)="drop($event)"
-  [cdkDropListData]="[colour]"
+  [cdkDropListData]="[{colour: colour, someValue: 1}]"
+  (cdkDropListExited)="onDragExited()"
   cdkDropList fxFlex="grow" fxLayoutAlign="center center" fxLayout="row">
   <app-block-draggable cdkDrag
                        style="width: 8vh; height: 9vh;"
-                       [cdkDragData]="colour"
+                       [cdkDragData]="{colour: colour, someValue: 1}"
   ></app-block-draggable>
 </div>
