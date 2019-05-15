@@ -1,0 +1,8 @@
+<div fxFlex="grow" fxLayout="column" fxLayoutAlign="space-evenly center">
+  <app-block-infinite-slot
+
+    [colour]="[i]"
+    *ngFor="let i of colours"
+    style="width: 8vw; height: 9vh">
+  </app-block-infinite-slot>
+</div>

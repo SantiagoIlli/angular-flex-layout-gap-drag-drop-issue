@@ -1,0 +1,13 @@
+<div fxFlex="grow" fxLayout="row" fxLayoutAlign="center center">
+  <div style="width: 80%; height: 80%; background: beige"
+       (cdkDropListDropped)="drop($event)"
+       [cdkDropListData]="dropList.data"
+       fxLayout="column" fxLayoutAlign="start center" cdkDropList fxLayoutGap="-2.3vh">
+    <app-block-draggable
+      *ngFor="let i of dropList.data"
+      style="width: 8vh; height: 9vh"
+      cdkDrag
+      [cdkDragData]="i"
+    ></app-block-draggable>
+  </div>
+</div>

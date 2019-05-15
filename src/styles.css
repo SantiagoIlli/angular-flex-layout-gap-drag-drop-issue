@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  transform-origin: center center;
+}
+
+.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  transform-origin: center center;
+}
+
